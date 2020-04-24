@@ -1,5 +1,5 @@
 const puppeteer = require('puppeteer');
-const url = 'https://www.anandmaratha.com/maratha-brides/';
+const urlBase = 'https://www.anandmaratha.com/maratha-brides/';
 const id=[];
 
 async function run () {
@@ -10,7 +10,7 @@ async function run () {
     var i;
     for (i = 1; i < 2 ; i++) {
         const page = await browser.newPage();        
-        await page.goto(url+i.toString());
+        await page.goto(urlBase+i.toString());
         let texts = await page.evaluate(() => {
             let data = [];
             let elements = document.getElementsByClassName('list-td');
@@ -23,6 +23,17 @@ async function run () {
     }
 
     console.log(id.length);
+
+    for(i=0;i<id.length/2;i++)
+    {
+        var url = 'https://www.anandmaratha.com/girls/'+id[i].toLowerCase()+'.jpg';
+        const options = {
+            url: url,
+            dest: '/Users/pavan/Desktop/scrapping/girls'
+        }
+        //downloadIMG(options);
+        console.log(options);
+    }
 
     browser.close();
 }
