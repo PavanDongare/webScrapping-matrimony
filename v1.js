@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 const download = require('image-downloader')
 const url = 'https://www.anandmaratha.com/maratha-brides/';
 const id=[];
-
+//
 async function run () {
     const browser = await puppeteer.launch();
     
@@ -35,7 +35,7 @@ async function run () {
         //downloadIMG(options);
         console.log(options);
     }
-
+  
     browser.close();
 }
 
