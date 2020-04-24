@@ -1,4 +1,6 @@
 const puppeteer = require('puppeteer');
+const download = require('image-downloader')
+
 const urlBase = 'https://www.anandmaratha.com/maratha-brides/';
 const id=[];
 
@@ -8,7 +10,7 @@ async function run () {
     var id=[];
 
     var i;
-    for (i = 1; i < 2 ; i++) {
+    for (i = 1; i < 20 ; i++) {
         const page = await browser.newPage();        
         await page.goto(urlBase+i.toString());
         let texts = await page.evaluate(() => {
@@ -24,20 +26,29 @@ async function run () {
 
     console.log(id.length);
 
-    for(i=0;i<id.length/2;i++)
+    for(i=0;i<id.length;i++)
     {
-        var url = 'https://www.anandmaratha.com/girls/'+id[i].toLowerCase()+'.jpg';
+        var urlImage = 'https://www.anandmaratha.com/girls/'+id[i].toLowerCase()+'.jpg';
         const options = {
-            url: url,
+            url: urlImage,
             dest: '/Users/pavan/Desktop/scrapping/girls'
         }
-        //downloadIMG(options);
+        downloadIMG(options);
         console.log(options);
     }
 
     browser.close();
 }
 
+async function downloadIMG(options) {
+    try {
+      const { filename, image } = await download.image(options)
+      console.log(filename) // => /path/to/dest/image.jpg
+    } catch (e) {
+      console.error(e)
+    }
+}
+   
 
 run();
 
