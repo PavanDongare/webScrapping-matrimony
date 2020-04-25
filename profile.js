@@ -10,7 +10,6 @@ async function run () {
         const page = await browser.newPage();        
         await page.goto(urlBase);
         let age = await page.evaluate(() => {
-            let data = [];
             let age = 0;
             let elements = document.getElementsByClassName('col-md-5');
             for (var element of elements)
