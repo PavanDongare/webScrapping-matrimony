@@ -8,6 +8,7 @@ async function run () {
     const browser = await puppeteer.launch();
     
     var id=[];
+    var final=[];
 
     var i;
     for (i = 1; i < 2 ; i++) {
@@ -31,10 +32,11 @@ async function run () {
         var link = data[1];
         // '+ +'
         var htmlStr = ' <a href="'+link+'"><img src=" '+imageSource+' " style=""></a>';
-        console.log(htmlStr);
+        final.push(htmlStr);
+        //console.log(htmlStr);
     }
 
-    //console.log(id);
+    console.log(final);
 
     browser.close();
 }
