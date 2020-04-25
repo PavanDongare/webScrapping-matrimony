@@ -16,10 +16,10 @@ async function run () {
         let texts = await page.evaluate(() => {
             let data = [];
             let elements = document.getElementsByClassName('list-td');
-            var href =     document.getElementsByClassName("list-td")[0].href;
+            // var href =     document.getElementsByClassName("list-td")[0].href;
 
             for (var element of elements)
-                data.push(element.textContent + ' '+ href);
+                data.push('https://www.anandmaratha.com/girls/'+element.textContent.toLowerCase()+'.jpg');
             return data;
         });
 
@@ -36,7 +36,7 @@ async function run () {
             dest: '/Users/pavan/Desktop/scrapping/girls'
         }
        // downloadIMG(options);
-        console.log(options);
+        // console.log(options);
     }
 
     browser.close();
