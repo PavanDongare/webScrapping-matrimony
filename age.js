@@ -31,13 +31,31 @@ async function run () {
         var imageSource = data[0];
         var link = data[1];
         // '+ +'
-        var htmlStr = ' <a href="'+link+'"  target="_blank" ><img src=" '+imageSource+' " >  '+ele+'</a>';
-        final.push(htmlStr);
+
+        await page.goto(link);
+        let age = await page.evaluate(() => {
+            let age = 0;
+            let elements = document.getElementsByClassName('col-md-5');
+            for (var element of elements)
+                if(element.textContent.includes('DATE OF BIRTH'))
+                    age = Number(element.textContent.split(/\s+/)[5].split('/')[2]);
+            return age;
+        });
+
+        
+        if(age>=1994)
+        {
+            console.log(age);
+            var htmlStr = ' <a href="'+link+'"  target="_blank" ><img src=" '+imageSource+' "  >  '+ele+'->'+age+'  </a>';
+            final.push(htmlStr);
+        }
+        if(ele>10)
+         break;
     }
 
     var str = final.join('\n');
     console.log(str);
-    //fs.writeFileSync('/Users/pavan/Desktop/scrapping/AM.html',str);
+    fs.writeFileSync('/Users/pavan/Desktop/scrapping/AMage.html',str);
 
     browser.close();
 }
