@@ -31,12 +31,13 @@ async function run () {
         var imageSource = data[0];
         var link = data[1];
         // '+ +'
-        var htmlStr = ' <a href="'+link+'"><img src=" '+imageSource+' " style=""></a>';
+        var htmlStr = ' <a href="'+link+'"  target="_blank" ><img src=" '+imageSource+' " ></a>';
         final.push(htmlStr);
         //console.log(htmlStr);
     }
 
-    console.log(final);
+    var str = final.join('\n');
+    console.log(str);
 
     browser.close();
 }
