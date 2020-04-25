@@ -54,7 +54,7 @@ async function run () {
     }
 
     var str = final.join('\n');
-    console.log(str);
+    //console.log(str);
     fs.writeFileSync('/Users/pavan/Desktop/scrapping/AMage.html',str);
 
     browser.close();
