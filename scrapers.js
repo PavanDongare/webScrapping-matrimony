@@ -1,5 +1,5 @@
 const puppeteer = require('puppeteer');
-const download = require('image-downloader')
+const fs = require('fs');
 
 const urlBase = 'https://www.anandmaratha.com/maratha-brides/';
 const id=[];
@@ -31,13 +31,13 @@ async function run () {
         var imageSource = data[0];
         var link = data[1];
         // '+ +'
-        var htmlStr = ' <a href="'+link+'"  target="_blank" ><img src=" '+imageSource+' " ></a>';
+        var htmlStr = ' <a href="'+link+'"  target="_blank" ><img src=" '+imageSource+' " >  '+ele+'</a>';
         final.push(htmlStr);
-        //console.log(htmlStr);
     }
 
     var str = final.join('\n');
     console.log(str);
+    //fs.writeFileSync('/Users/pavan/Desktop/scrapping/AM.html',str);
 
     browser.close();
 }
