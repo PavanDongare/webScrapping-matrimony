@@ -10,21 +10,23 @@ async function run () {
     var id=[];
 
     var i;
-    for (i = 1; i < 20 ; i++) {
+    for (i = 1; i < 2 ; i++) {
         const page = await browser.newPage();        
         await page.goto(urlBase+i.toString());
         let texts = await page.evaluate(() => {
             let data = [];
             let elements = document.getElementsByClassName('list-td');
+            var href =     document.getElementsByClassName("list-td")[0].href;
+
             for (var element of elements)
-                data.push(element.textContent);
+                data.push(element.textContent + ' '+ href);
             return data;
         });
 
         id.push(...texts);
     }
 
-    console.log(id.length);
+    console.log(id);
 
     for(i=0;i<id.length;i++)
     {
@@ -33,7 +35,7 @@ async function run () {
             url: urlImage,
             dest: '/Users/pavan/Desktop/scrapping/girls'
         }
-        downloadIMG(options);
+       // downloadIMG(options);
         console.log(options);
     }
 
