@@ -10,7 +10,7 @@ async function run () {
     var id=[];
 
     var i;
-    for (i = 1; i < 4 ; i++) {
+    for (i = 1; i < 2 ; i++) {
         const page = await browser.newPage();        
         await page.goto(urlBase+i.toString());
         let texts = await page.evaluate(() => {
@@ -24,7 +24,17 @@ async function run () {
         id.push(...texts);
     }
 
-    console.log(id);
+    for(ele in id)
+    {   
+        var data = id[ele].split(' ');
+        var imageSource = data[0];
+        var link = data[1];
+        // '+ +'
+        var htmlStr = ' <a href="'+link+'"><img src=" '+imageSource+' " style=""></a>';
+        console.log(htmlStr);
+    }
+
+    //console.log(id);
 
     browser.close();
 }
