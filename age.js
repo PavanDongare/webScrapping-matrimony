@@ -9,10 +9,11 @@ async function run () {
     
     var id=[];
     var final=[];
+    var finalCount=0;
 
     var i;
     const page = await browser.newPage();
-    for (i = 1; i < 2 ; i++) {             
+    for (i = 1; i < 20 ; i++) {             
         await page.goto(urlBase+i.toString());
         let texts = await page.evaluate(() => {
             let data = [];
@@ -45,12 +46,12 @@ async function run () {
         
         if(age>=1994)
         {
-            console.log(age);
-            var htmlStr = ' <a href="'+link+'"  target="_blank" ><img src=" '+imageSource+' "  >  '+ele+'->'+age+'  </a>';
+            console.log(ele,finalCount);
+            finalCount++
+            var htmlStr = ' <a href="'+link+'"  target="_blank" ><img src=" '+imageSource+' "  >  '+finalCount+'->'+age+'  </a>';
             final.push(htmlStr);
         }
-        if(ele>10)
-         break;
+
     }
 
     var str = final.join('\n');
