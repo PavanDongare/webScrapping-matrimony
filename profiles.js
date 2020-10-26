@@ -49,12 +49,14 @@ async function run () {
         arr.push(row);
 
         finalCount++
-        var htmlStr = ' <a href="'+link+'"  target="_blank" ><img src=" '+imageSource+' "  >  '+finalCount+'-> '+age+' </a>';
+        var htmlStr = ' <a href="'+link+'"  target="_blank" ><img src=" '+imageSource+' " + ' +age+' </a>';
         final.push(htmlStr);
     }
     final =  final.sort(Comparator);
+    for(index of final)
+        final[index] = final[index] + index.toString()
     var str = final.join('\n');
-    fs.writeFileSync('oct-age.html',str);
+    fs.writeFileSync('oct-ageNum.html',str);
    
 
     browser.close();
