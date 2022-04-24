@@ -1,16 +1,23 @@
 {
-  "name": "scrapping",
+  "name": "webscrapping-matrimony",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "web scraping of girls profiles on https://www.anandmaratha.com/ Don't judge me, no casteism, I love all girls equally 😝, this code is just for fun.",
+  "main": "profiles.js",
+  "dependencies": {
+    "puppeteer": "^13.6.0"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PavanDongare/webScrapping-matrimony.git"
+  },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "image-downloader": "^3.5.0",
-    "puppeteer": "^3.0.1"
-  }
+  "bugs": {
+    "url": "https://github.com/PavanDongare/webScrapping-matrimony/issues"
+  },
+  "homepage": "https://github.com/PavanDongare/webScrapping-matrimony#readme"
 }

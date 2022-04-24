@@ -16,19 +16,26 @@ async function run () {
 
     var i;
     const page = await browser.newPage();
-    for (i = 1; i < 20 ; i++) {             
+    for (i = 1; i < 23 ; i++) {  
+        console.log(i);           
         await page.goto(urlBase+i.toString());
         let texts = await page.evaluate(() => {
             let data = [];
             let elements = document.getElementsByClassName('list-td');
-            var ages = document.querySelectorAll("[id='d2']");
+            // var ages = document.querySelectorAll("[id='d2']");
             let index = 0 ; 
             for (var element of elements){
-                let age  = Number(ages[index].textContent.split('/')[2])
-                if(age>=1993)
-                    data.push('https://www.anandmaratha.com/girls/'+elements[index].textContent.toLowerCase()+'.jpg'+' '+element.href+' '+ages[index].textContent.split('/')[2]);
-                index++;
-            }
+                if(index%2)   
+                data.push('https://www.anandmaratha.com/girls/'+elements[index].textContent.toLowerCase()+'.jpg'+' '+element.href+' ');
+            index++;
+        }
+
+            // for (var element of elements){
+            //     let age  = Number(ages[index].textContent.split('/')[2])
+            //     if(age>=1993)
+            //         data.push('https://www.anandmaratha.com/girls/'+elements[index].textContent.toLowerCase()+'.jpg'+' '+element.href+' '+ages[index].textContent.split('/')[2]);
+            //     index++;
+            // }
                
                 
             
