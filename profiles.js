@@ -1,5 +1,13 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
+// date 
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+today = mm + '-' + dd + '-' + yyyy;
+// 
+
 
 const urlBase = 'https://www.anandmaratha.com/maratha-brides/';
 const id = [];
@@ -33,12 +41,6 @@ async function run() {
                 index++;
             }
 
-            // for (var element of elements){
-            //     let age  = Number(ages[index].textContent.split('/')[2])
-            //     if(age>=1993)
-            //         data.push('https://www.anandmaratha.com/girls/'+elements[index].textContent.toLowerCase()+'.jpg'+' '+element.href+' '+ages[index].textContent.split('/')[2]);
-            //     index++;
-            // }
 
 
 
