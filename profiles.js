@@ -24,7 +24,7 @@ async function run() {
 
     var i;
     const page = await browser.newPage();
-    for (i = 1; i < 2; i++) {
+    for (i = 1; i < 23; i++) {
         console.log(i);
         await page.goto(urlBase + i.toString());
         let texts = await page.evaluate(() => {
@@ -61,12 +61,12 @@ async function run() {
         arr.push(row);
 
         finalCount++
-        var htmlStr = ' <a href="' + link + '"  target="_blank" ><img src=" ' + imageSource + ' "  </a>' + age + ' ';
+        var htmlStr = ' <a href="' + link + '"  target="_blank" ><img src=" ' + imageSource + ' "  </a> ' + age + ' /';
         final.push(htmlStr);
     }
     final = final.sort(Comparator);
     for (let i = 0; i < final.length; i++) {
-       final[i] = final[i] + '/'+i+' '; 
+       final[i] = final[i] +i+' '; 
       }
     
     var str = final.join('\n');
