@@ -61,14 +61,15 @@ async function run() {
         arr.push(row);
 
         finalCount++
-        var htmlStr = ' <a href="' + link + '"  target="_blank" ><img src=" ' + imageSource + ' " + ' + age + ' </a>';
+        var htmlStr = ' <a href="' + link + '"  target="_blank" ><img src=" ' + imageSource + ' "  </a>' + age + ' ';
         final.push(htmlStr);
     }
     final = final.sort(Comparator);
     for (index of final)
         final[index] = final[index] + index.toString()
+    
     var str = final.join('\n');
-    fs.writeFileSync('april22.html', str);
+    fs.writeFileSync(`${today}.html`, str);
 
 
     browser.close();
