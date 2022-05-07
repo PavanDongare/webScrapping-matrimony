@@ -65,8 +65,8 @@ async function run() {
         final.push(htmlStr);
     }
     final = final.sort(Comparator);
-    for (index of final)
-        final[index] = final[index] + index.toString()
+    // for (index of final)
+    //     final[index] = final[index] + index.toString()
     
     var str = final.join('\n');
     fs.writeFileSync(`${today}.html`, str);
