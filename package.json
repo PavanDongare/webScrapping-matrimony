@@ -4,7 +4,7 @@
   "description": "web scraping of girls profiles on https://www.anandmaratha.com/ Don't judge me, no casteism, I love all girls equally 😝, this code is just for fun.",
   "main": "profiles.js",
   "dependencies": {
-    "puppeteer": "^13.6.0"
+    "puppeteer": "^22.11.2"
   },
   "devDependencies": {},
   "scripts": {
